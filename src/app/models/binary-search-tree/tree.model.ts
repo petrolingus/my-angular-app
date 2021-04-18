@@ -20,4 +20,23 @@ export class BinarySearchTree<K, V> {
 
         return root;
     }
+
+    public getHeight(): number {
+        return this.findHeight(this.tree);
+    }
+
+    private findHeight(root: TreeNode<K, V>): number {
+        if (root == null) {
+            return -1;
+        }
+
+        const leftHeight = this.findHeight(root.left);
+        const rightHeight = this.findHeight(root.right);
+
+        if (leftHeight > rightHeight) {
+            return leftHeight + 1;
+        } else {
+            return rightHeight + 1;
+        }
+    }
 }
