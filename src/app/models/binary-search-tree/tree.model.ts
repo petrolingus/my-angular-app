@@ -1,10 +1,10 @@
 import {TreeNode} from './node.model';
 
 export class BinarySearchTree<K, V> {
-    tree: TreeNode<K, V>;
+    root: TreeNode<K, V>;
 
     public insert(key: K, value: V): void {
-        this.tree = this.insertionRecursive(this.tree, key, value);
+        this.root = this.insertionRecursive(this.root, key, value);
     }
 
     private insertionRecursive(root: TreeNode<K, V>, key: K, value: V): TreeNode<K, V> {
@@ -22,7 +22,7 @@ export class BinarySearchTree<K, V> {
     }
 
     public getHeight(): number {
-        return this.findHeight(this.tree);
+        return this.findHeight(this.root);
     }
 
     private findHeight(root: TreeNode<K, V>): number {
