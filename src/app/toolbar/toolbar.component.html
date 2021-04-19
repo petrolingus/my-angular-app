@@ -1,0 +1,23 @@
+<div class="toolbar">
+    <h1 class="title">Binary Search Tree</h1>
+    <div class="form">
+        <input placeholder="Key" [(ngModel)]="key">
+        <input placeholder="Value" [(ngModel)]="value">
+        <button class="insert" (click)="insertNode()">Insert</button>
+    </div>
+    <br>
+    <div class="form">
+        <input placeholder="Key" [(ngModel)]="findKey">
+        <button class="find" (click)="findNode()">Find</button>
+    </div>
+    <br>
+    <div class="form">
+        <input placeholder="Key" [(ngModel)]="removeKey">
+        <button class="remove" (click)="removeNode()">Remove</button>
+    </div>
+    <br>
+    <h2>Results:</h2>
+    <div class="result">
+        <pre>{{result}}</pre>
+    </div>
+</div>

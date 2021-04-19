@@ -1,3 +1,11 @@
-canvas {
-    background-color: coral;
+div.container {
+    padding: 1rem;
+    height: calc(100% - 2rem);
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+app-canvas {
+    width: 100%;
 }

@@ -1,3 +1,15 @@
-<div class="container>">
-    <canvas></canvas>
+<div class="container">
+<!--    <div class="canvas"></div>-->
+    <app-canvas
+        [setPair]="pair"
+        [setRemoveKey]="removedKey"
+        [setFindKey]="findKey"
+        (resultEmitter)="setResult($event)"
+    ></app-canvas>
+    <app-toolbar
+        [result]="result"
+        (pairEmitter)="childToParent($event)"
+        (numberEmitter)="setRemovedKey($event)"
+        (findEmitter)="setFindKey($event)"
+    ></app-toolbar>
 </div>

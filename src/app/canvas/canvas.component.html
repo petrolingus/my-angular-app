@@ -1,1 +1,8 @@
-<p>canvas works!</p>
+<canvas #canvas
+        (window:resize)="onCanvasResize()"
+        (mousewheel)="onZoom($event)"
+        (mousemove)="onTranslate($event)"
+        (mousedown)="onMouseDown()"
+        (mouseup)="onMouseUp()"
+        (mouseout)="onMouseLeave()"
+></canvas>

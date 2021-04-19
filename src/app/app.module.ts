@@ -3,14 +3,18 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {CanvasComponent} from './canvas/canvas.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [
         AppComponent,
-        CanvasComponent
+        CanvasComponent,
+        ToolbarComponent
     ],
     imports: [
-        BrowserModule
+        BrowserModule,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
