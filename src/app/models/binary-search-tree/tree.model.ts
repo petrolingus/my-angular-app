@@ -24,6 +24,56 @@ export class BinarySearchTree<K, V> {
         return root;
     }
 
+
+    public remove(key: K): void {
+        let parent: TreeNode<K, V> | null = null;
+        let v = this.root;
+        while (true) {
+            if (v == null) {
+                return;
+            } else if (key < v.key) {
+                parent = v;
+                v = v.left;
+            } else if (key > v.key) {
+                parent = v;
+                v = v.right;
+            } else {
+                break;
+            }
+        }
+
+        let result: TreeNode<K, V> | null;
+
+        if (v.left == null) {
+            result = v.right;
+        } else if (v.right == null) {
+            result = v.left;
+        } else {
+            let minNodeParent = v;
+            let minNode = v.right;
+            while (minNode.left != null) {
+                minNodeParent = minNode;
+                minNode = minNode.left;
+            }
+            result = v;
+            v.key = minNode.key;
+            this.replaceChild(minNodeParent, minNode, minNode.right);
+        }
+
+        this.replaceChild(parent, v, result);
+    }
+
+    private replaceChild(parent: TreeNode<K, V> | null, old: TreeNode<K, V>, newNode: TreeNode<K, V> | null): void {
+        if (parent == null) {
+            this.root = newNode;
+        } else if (parent.left === old) {
+            parent.left = newNode;
+        } else if (parent.right === old) {
+            parent.right = newNode;
+        }
+    }
+
+
     public getHeight(): number {
         return this.findHeight(this.root);
     }
