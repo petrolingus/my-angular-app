@@ -25,6 +25,30 @@ export class BinarySearchTree<K, V> {
     }
 
 
+    public find(key: K): TreeNode<K, V> | null {
+        let nodePointer = this.root;
+        if (nodePointer === null) {
+            return null;
+        } else {
+            while (true) {
+                if (key === nodePointer.key) {
+                    return nodePointer;
+                } else if (key > nodePointer.key) {
+                    if (nodePointer.right === null) {
+                        return null;
+                    }
+                    nodePointer = nodePointer.right;
+                } else {
+                    if (nodePointer.left == null) {
+                        return null;
+                    }
+                    nodePointer = nodePointer.left;
+                }
+            }
+        }
+    }
+
+
     public remove(key: K): void {
         let parent: TreeNode<K, V> | null = null;
         let v = this.root;
