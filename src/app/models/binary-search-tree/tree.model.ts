@@ -12,6 +12,9 @@ export class BinarySearchTree<K, V> {
             return new TreeNode<K, V>(key, value);
         }
 
+        if (key === root.key) {
+            return root;
+        }
         if (key < root.key) {
             root.left = this.insertionRecursive(root.left, key, value);
         } else if (key > root.key) {
@@ -25,18 +28,11 @@ export class BinarySearchTree<K, V> {
         return this.findHeight(this.root);
     }
 
-    private findHeight(root: TreeNode<K, V>): number {
-        if (root == null) {
-            return -1;
-        }
-
-        const leftHeight = this.findHeight(root.left);
-        const rightHeight = this.findHeight(root.right);
-
-        if (leftHeight > rightHeight) {
-            return leftHeight + 1;
+    private findHeight(node: TreeNode<K, V>): number {
+        if (node != null) {
+            return 1 + Math.max(this.findHeight(node.left), this.findHeight(node.right));
         } else {
-            return rightHeight + 1;
+            return 0;
         }
     }
 }
